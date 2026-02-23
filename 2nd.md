@@ -11,7 +11,7 @@ How does it work?
 -
 the brower will load html/css and download js spataneously
 
-Then the event will be triggered
+Then the event will be triggered through js.!
 
 JS in Web
 -
