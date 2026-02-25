@@ -10,22 +10,6 @@ function getUser(id) {
   })
 }
 
-getUser(1)
-  .then((user) => {
-    console.log(user.name)
-  })
-  .catch((err) => {
-    console.log(err)
-  })
-
-getUser(2)
-  .then((user) => {
-    console.log(user.name)
-  })
-  .catch((err) => {
-    console.log(err)
-  });
-
 function getPosts(userId) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -37,18 +21,19 @@ function getPosts(userId) {
         }else{
             reject("failed to find article")
         }
-    }, 1000);
-  });
+    }, 1000)
+  })
 }
 
-getUser(1)
-  .then((user) => {
-    console.log('find user: ' + user.name);
-    return getPosts(user.id);       // return a new Promise
-  })
-  .then((posts) => {
-    console.log('his article: ', posts); 
-  })
-  .catch((err) => {
-    console.log(err);   
-  });
+async function main(){
+    try{
+        const user = await getUser(1)
+        console.log(user.name)
+        const posts = await getPosts(user.id)
+        console.log(`${user.name}'s posts`, posts)
+    }catch(err){
+        console.log("error: ",err)
+    }
+}
+
+main()

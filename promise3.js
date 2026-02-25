@@ -1,14 +1,3 @@
-The problem about "wait"
--
-![img](./pic/promise1.png)
-
-promise demo
--
-![img](./pic/promise2.png)
-
-real-annimation
--
-```javascript
 function getUser(id) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -48,8 +37,8 @@ function getPosts(userId) {
         }else{
             reject("failed to find article")
         }
-    }, 1000);
-  });
+    }, 1000)
+  })
 }
 
 getUser(1)
@@ -63,11 +52,3 @@ getUser(1)
   .catch((err) => {
     console.log(err);   
   });
-```
-this is the output:
-```txt
-syl
-failed to find user
-find user: syl
-failed to find article
-```
